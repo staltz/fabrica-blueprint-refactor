@@ -1,7 +1,7 @@
 ---
 description: "Align code names with one term from CONTEXT.md"
 trigger: {"on": "github.push"}
-connectors: ["github", "github-mcp"]
+connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request"]
 memory: true
 models:

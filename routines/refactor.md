@@ -1,7 +1,7 @@
 ---
 description: "Refactor Rust or TypeScript using the existing repository skills"
 trigger: {"on": "github.push"}
-connectors: ["github", "github-mcp"]
+connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request", "github.pr_comment"]
 memory: true
 models:

@@ -1,7 +1,7 @@
 ---
 description: "Extract a large Rust or TypeScript file or function into logical parts"
 trigger: {"on": "github.push"}
-connectors: ["github", "github-mcp"]
+connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request"]
 memory: true
 models:

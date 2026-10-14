@@ -1,7 +1,7 @@
 ---
 description: "Improve a poorly named source-code concept"
 trigger: {"on": "github.push"}
-connectors: ["github", "github-mcp"]
+connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request"]
 memory: true
 models:
