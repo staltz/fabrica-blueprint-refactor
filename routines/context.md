@@ -5,7 +5,7 @@ connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request"]
 memory: true
 models:
-  - { model: grok-4.6, effort: high }
+  - { model: grok-4.6, effort: high, fast: false }
   - { model: claude-sonnet-5-5, effort: xhigh }
   - default
 ---
