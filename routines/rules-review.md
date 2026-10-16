@@ -11,4 +11,4 @@ models:
 ---
 Review whether the pull request in question is violating any of the rules in AGENTS.md or .cursor/rules ; if there are any violations, then flag those as code review comments, preferably inline.
 
-When you comment on the pull request, always have the first sentence be either "**Rules: passed.** ☘️" or "**Rules: violated.** 🥀"
+When you comment on the pull request, always have the first sentence be either "**Rules: passed.** ☘️" (🍀 emoji is equally accepted as ☘️) or "**Rules: violated.** 🥀"
