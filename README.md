@@ -20,7 +20,7 @@ Every PR they open uses a title prefix, so you can skim the list and know who di
 
 **`cruft`** (`cruft: `) deletes outdated docs, dead code, or leftover files, after a second look that they really are unused. It skips the `docs/` folder, and anything edited in the last five days.
 
-A sixth routine, **`rules-review`**, fires when a pull request opens. It reads `AGENTS.md` and `.cursor/rules` in the product repo and leaves a review comment whose first sentence is either **Rules: passed.** or **Rules: violated.**
+A sixth routine, **`rules-review`**, fires on every new commit to a pull request. It reads `AGENTS.md` and `.cursor/rules` in the product repo and leaves a review comment whose first sentence is either **Rules: passed.** or **Rules: violated.**
 
 Before the main job, the PR-opening routines refresh a `MEMORIES.md` in the product repo, at most once a week per prefix. Merged PRs become examples. PRs closed without a merge become counterexamples. That file is how later runs learn what this particular repo accepts.
 
