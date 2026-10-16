@@ -4,6 +4,7 @@ trigger: {"on": "github.push"}
 connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request"]
 memory: true
+skills: [examples-counterexamples]
 models:
   - { model: grok-4.7, effort: high, fast: false }
   - { model: claude-sonnet-5-5, effort: xhigh }
