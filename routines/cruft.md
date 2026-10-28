@@ -5,14 +5,16 @@ connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request"]
 memory: true
 skills: [examples-counterexamples]
+params:
+  proceed_threshold: { default: 10, description: "Proceed only when a random 0-99 roll is at most this" }
 models:
-  - { model: grok-4.5, effort: high, fast: false }
+  - { model: deepseek-v4.1-flash-1017, effort: high }
   - { model: claude-sonnet-5-5, effort: xhigh }
   - default
 ---
 # Conditions to proceed
 
-Generate a random integer with `echo $(( RANDOM % 100 ))`, if it is less than or equal 9, then proceed, otherwise abort yourself immediately.
+Generate a random integer with `echo $(( RANDOM % 100 ))`, if it is less than or equal {{params.proceed_threshold}}, then proceed, otherwise abort yourself immediately.
 
 Look at how many open or draft pull requests this repository currently has. If 1 or more of them have a title starting with `cruft: `, abort yourself immediately.
 

@@ -6,7 +6,7 @@ The agents work on your product repo, the one with the actual software. They ope
 
 ## What happens after a push
 
-Five routines listen for `github.push`. They are stingy on purpose. Each one rolls a number from 0 to 99 and continues only on roughly a one-in-ten chance. They also stop if a couple of their own PRs are already sitting open. You get a slow drip of cleanup, and the review queue stays small.
+Five routines listen for `github.push`. They are stingy on purpose. Each one rolls a number from 0 to 99 and continues only on roughly a one-in-ten chance. A factory can change those odds for all five at once with the `proceed_threshold` param, like `proceed_threshold: 20`. They also stop if a couple of their own PRs are already sitting open. You get a slow drip of cleanup, and the review queue stays small.
 
 Every PR they open uses a title prefix, so you can skim the list and know who did what.
 
