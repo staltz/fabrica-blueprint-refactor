@@ -7,7 +7,7 @@ connectors: ["github"]
 side_effects: ["github.pr_comment"]
 memory: false
 models:
-  - { model: deepseek-v4.1-flash-1017, effort: high }
+  - { model: grok-4.6, effort: high, false: false }
   - { model: claude-sonnet-5-5, effort: xhigh }
   - default
 ---

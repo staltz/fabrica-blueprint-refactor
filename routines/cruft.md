@@ -8,7 +8,7 @@ skills: [examples-counterexamples]
 params:
   proceed_threshold: { default: 10, description: "Proceed only when a random 0-99 roll is at most this" }
 models:
-  - { model: deepseek-v4.1-flash-1017, effort: high }
+  - { model: grok-4.6, effort: high, false: false }
   - { model: claude-sonnet-5-5, effort: xhigh }
   - default
 ---
