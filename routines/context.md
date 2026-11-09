@@ -16,11 +16,11 @@ models:
 
 Generate a random integer with `echo $(( RANDOM % 100 ))`, if it is less than or equal {{params.proceed_threshold}}, then proceed, otherwise abort yourself immediately.
 
-Look at how many open or draft pull requests this repository currently has. If 2 or more of them have a title starting with `context: `, abort yourself immediately.
+Look at how many open or draft pull requests this repository currently has. If 2 or more of them have a title starting with `refactor/context: `, abort yourself immediately.
 
 # Side quest
 
-Before moving on to the "Instructions", use the /examples-counterexamples skill with prefix `context: `.
+Before moving on to the "Instructions", use the /examples-counterexamples skill with prefix `refactor/context: `.
 
 # Instructions
 
