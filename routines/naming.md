@@ -1,20 +1,16 @@
 ---
 description: "Improve a poorly named source-code concept"
-trigger: {"on": "github.push"}
+trigger: { on: pace, every: 8 }
 connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request"]
 memory: true
 skills: [examples-counterexamples]
-params:
-  proceed_threshold: { default: 10, description: "Proceed only when a random 0-99 roll is at most this" }
 models:
-  - { model: grok-4.6, effort: high, fast: false }
+  - { model: grok-4.7, effort: high, fast: false }
   - { model: claude-sonnet-5-5, effort: xhigh }
   - default
 ---
 # Conditions to proceed
-
-Generate a random integer with `echo $(( RANDOM % 100 ))`, if it is less than or equal {{params.proceed_threshold}}, then proceed, otherwise abort yourself immediately.
 
 Look at how many open or draft pull requests this repository currently has. If 2 or more of them have a title starting with `refactor/naming: `, abort yourself immediately.
 
@@ -41,3 +37,4 @@ Inconsistent naming is worse than a bad name. Look for equivalent concepts or en
 Avoid misleading names, unnecessary words like `data` or `info`, outdated type encodings, slang, and obscure acronyms. Single letter names are acceptable only in limited contexts, such as loop counters, or for geometry.
 
 Read MEMORIES.md for examples and counterexamples.
+

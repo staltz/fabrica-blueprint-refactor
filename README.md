@@ -4,9 +4,9 @@ This is a [Fabrica](https://github.com/staltz/fabrica) blueprint. It is a small 
 
 The agents work on your product repo, the one with the actual software. They open ordinary GitHub pull requests, and a person reviews those the way they review anyone else's.
 
-## What happens after a push
+## What happens on each pace
 
-Five routines listen for `github.push`. They are stingy on purpose. Each one rolls a number from 0 to 99 and continues only on roughly a one-in-ten chance. A factory can change those odds for all five at once with the `proceed_threshold` param, like `proceed_threshold: 20`. They also stop if a couple of their own PRs are already sitting open. You get a slow drip of cleanup, and the review queue stays small.
+Five routines run on the factory's [pace](https://github.com/staltz/fabrica/blob/main/manual/home-repos.md#pace), each every so many paces: `refactor` and `naming` every 4, `split` and `context` every 8, `cruft` every 12. With `pace: 30m`, that's every 2h, 4h and 6h. A factory speeds them all up or slows them all down at once by changing `pace:`. They also stop if a couple of their own PRs are already sitting open. You get a slow drip of cleanup, and the review queue stays small.
 
 Every PR they open uses a title prefix, so you can skim the list and know who did what.
 
@@ -30,7 +30,7 @@ The longer how-tos live under `skills/`. `refactor` uses `refactor-small` (one l
 
 ## Using it
 
-These routines fire on GitHub events, so they need a **cloud factory**. From a [home repo](https://github.com/staltz/fabrica/blob/main/docs/home-repos.md):
+The pace routines need a runtime with `schedule`, and `rules-review` fires on GitHub events, so use a **cloud factory**, and give it a `pace:` (Fabrica 1.6.0 or later). From a [home repo](https://github.com/staltz/fabrica/blob/main/docs/home-repos.md):
 
 ```yaml
 # ~/.fabrica/factories/refactor.yaml
@@ -39,6 +39,7 @@ blueprint:
   ref: master
 server: https://fabrica.example.com
 runtimes: [cursor-cloud]
+pace: 30m
 targets: [github.com/you/your-app]
 ```
 

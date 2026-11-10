@@ -1,20 +1,16 @@
 ---
 description: "Refactor Rust or TypeScript using the existing repository skills"
-trigger: {"on": "github.push"}
+trigger: { on: pace, every: 6 }
 connectors: ["github"]
 side_effects: ["github.push", "github.open_pull_request", "github.pr_comment"]
 memory: true
 skills: [examples-counterexamples, refactor-big, refactor-small]
-params:
-  proceed_threshold: { default: 10, description: "Proceed only when a random 0-99 roll is at most this" }
 models:
-  - { model: grok-4.6, effort: high, fast: false }
+  - { model: grok-4.7, effort: high, fast: false }
   - { model: claude-sonnet-5-5, effort: xhigh }
   - default
 ---
 # Conditions to proceed
-
-Generate a random integer with `echo $(( RANDOM % 100 ))`, if it is less than or equal {{params.proceed_threshold}}, then proceed, otherwise abort yourself immediately.
 
 Look at how many open or draft pull requests this repository currently has. If 2 or more of them have a title starting with `refactor: `, abort yourself immediately.
 
@@ -24,9 +20,7 @@ Before moving on to the "Instructions", use the /examples-counterexamples skill 
 
 # Instruction
 
-Generate a random integer with `echo $(( RANDOM % 100 ))`, if it is less than or equal 50, then you will refactor Rust files, otherwise you will refactor TypeScript files.
-
-Use the /refactor-big OR the /refactor-small skill, opening a new pull request (with a title that starts with "refactor: "). After opening the pull request, wait 10 minutes, then check whether CI is failing or passing in that pull request branch. If there are failing CI tasks, debug and fix, to restore them to green.
+Use the /refactor-big OR the /refactor-small skill, opening a new pull request (with a title that starts with "refactor: ").
 
 Your pull request description should have `## Diagnosis`, `## Refactoring principle`, `## What was refactored`, `## Why this is beneficial`. Speak in casual and conversational plain English expository prose, easily readable by junior developers.
 
