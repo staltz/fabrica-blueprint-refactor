@@ -22,5 +22,5 @@ Before moving on to the "Instructions", use the /examples-counterexamples skill 
 
 Find outdated documentation or dead code or other unnecessary artifacts (except those in `docs/`, and any file that was changed in the past 5 days). Then double check that they're actually outdated cruft. If you have not found any dead code, then abort yourself immediately.
 
-Finally, simply delete the cruft. Open a pull request with a title that starts with "cruft: ".
+Finally, simply delete the cruft. Open a pull request with a title that starts with `refactor/cruft: `.
 

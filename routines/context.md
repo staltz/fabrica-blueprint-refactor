@@ -24,5 +24,5 @@ If CONTEXT.md does not exist, abort yourself immediately. Otherwise, continue.
 
 Read CONTEXT.md and focus on one term only. Then, scan the codebase to find misnamings of that term, and rename them correctly. Please see MEMORIES.md for the counterexamples, those are false misnamings that you should not attempt to rename. If you did not find any misnaming, abort yourself immediately.
 
-Then open a pull request with a title that starts with "context: ".
+Then open a pull request with a title that starts with `refactor/context: `.
 
